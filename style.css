@@ -1,0 +1,30 @@
+.countdown {
+  text-align: right;
+}
+
+
+#start-button {
+  background-color: purple;
+  color: white;
+}
+
+.hide {
+  display: none;
+}
+
+
+#submit {
+  background-color: purple;
+  color: white;
+}
+
+.answers {
+  background-color: purple;
+  color: white;
+}
+
+@media only screen and (max-width: 800px) {
+  .card {
+    width: 80vw;
+  }
+}
