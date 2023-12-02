@@ -12,6 +12,8 @@ var answer4 = document.querySelector('#answer4');
 var scoreCheck = document.querySelector('#check-score')
 var submitEl = document.querySelector("#submit");
 var nameInput = document.querySelector("#name");
+var goBackbtn = document.querySelector("#go-back");
+var clearScoresbtn = document.querySelector("#clear-scores");
 
 //Quiz time variables
 
@@ -187,9 +189,21 @@ startBtn.addEventListener('click', function(event){
   displayQuestion();
   container.classList.remove("hide");
 
-
-
 })
+
+
+
+goBackbtn.addEventListener("click", function(event) {
+  console.log("clicked")
+  location.reload();
+});
+
+clearScoresbtn.addEventListener("click",function(event) {
+   localStorage.clear();
+   document.getElementById('saved-name').innerHTML = "";
+   document.getElementById('saved-score').innerHTML = "";
+});
+
 
 // Add listener to submit element
 submitEl.addEventListener("click", showResponse);
