@@ -91,12 +91,12 @@ function displayQuestion(){
     var element = event.target;
     count++
     displayQuestion()
-
+  
 // Checking the answers 
 function checkAnswer() {
   var buttonValue = parseInt(event.target.value);
 
-  if (buttonValue === quizQuestions[count].correctAnswer) {
+  if (buttonValue === quizQuestions[count - 1].correctAnswer) {
     scoreCheck.textContent = "Correct!";
   }
   else {
@@ -138,6 +138,8 @@ function quizEnd(){
   document.querySelector("#finished").removeAttribute("class");
   document.querySelector(".questions").setAttribute("style","display:none");
   document.querySelector(".scorecard").classList.remove('hide');
+  saveScore();
+  showScore();
 }
 
 // Submit Initials Section 
@@ -160,9 +162,8 @@ score: secondsLeft,
    document.getElementById('saved-score').innerHTML = lastGrade.score;
   }
  }
-var saveButton=document.getElementById("submitForm");
 
- saveButton.addEventListener('submit', function (event) {
+ saveButton.addEventListener('click', function (event) {
   event.preventDefault();
   saveScore();
   showScore();
