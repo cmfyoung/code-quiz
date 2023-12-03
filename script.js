@@ -5,11 +5,13 @@ var questionBox = document.querySelector('.questionbox');
 var container = document.querySelector('#qna');
 var card = document.querySelector('.card-contents');
 var scoreCard = document.querySelector('.scorecard');
+var allDone = document.querySelector('.container');
 var answer1 = document.querySelector('#answer1');
 var answer2 = document.querySelector('#answer2');
 var answer3 = document.querySelector('#answer3');
 var answer4 = document.querySelector('#answer4');
-var scoreCheck = document.querySelector('#check-score')
+var scoreCheck = document.querySelector('#check-score');
+var viewScore = document.querySelector('#view-score');
 var submitEl = document.querySelector("#submit");
 var nameInput = document.querySelector("#name");
 var goBackbtn = document.querySelector("#go-back");
@@ -155,7 +157,10 @@ score: secondsLeft,
  };
 
   localStorage.setItem('quizScore', JSON.stringify(quizScore));
- }
+
+  scoreCard.setAttribute("class", "hide");
+}
+ 
 
  function showScore() {
   var lastGrade = JSON.parse(localStorage.getItem('quizScore'));
@@ -169,13 +174,9 @@ score: secondsLeft,
   event.preventDefault();
   saveScore();
   showScore();
+  allDone.setAttribute("class", "hide");
+  scoreCard.removeAttribute("class", "hide");
 });
-
- function init() {
-  showScore();
- }
-init();
-
 
 // Action to be performed on click store in named function
 function showResponse(event) {
@@ -189,9 +190,7 @@ startBtn.addEventListener('click', function(event){
   displayQuestion();
   container.classList.remove("hide");
 
-})
-
-
+});
 
 goBackbtn.addEventListener("click", function(event) {
   console.log("clicked")
