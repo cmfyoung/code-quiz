@@ -1,17 +1,18 @@
 // Dom Elements
 const timerEl = document.querySelector('#timerEl');
 var startBtn = document.querySelector('#start-button');
+var landingPage = document.querySelector('#landing-page');
 var questionBox = document.querySelector('.questionbox');
 var container = document.querySelector('#qna');
 var card = document.querySelector('.card-contents');
 var scoreCard = document.querySelector('.scorecard');
-var allDone = document.querySelector('.container');
+var allDone = document.querySelector('#finished');
 var answer1 = document.querySelector('#answer1');
 var answer2 = document.querySelector('#answer2');
 var answer3 = document.querySelector('#answer3');
 var answer4 = document.querySelector('#answer4');
 var scoreCheck = document.querySelector('#check-score');
-var viewScore = document.querySelector('#view-score');
+var viewScorebtn =document.querySelector('#view-score');
 var submitEl = document.querySelector("#submit");
 var nameInput = document.querySelector("#name");
 var goBackbtn = document.querySelector("#go-back");
@@ -155,12 +156,12 @@ var quizScore = {
  name: nameInput.value,
 score: secondsLeft,
  };
-
+  
   localStorage.setItem('quizScore', JSON.stringify(quizScore));
 
   scoreCard.setAttribute("class", "hide");
 }
- 
+// Save initials and score to local storage  
 
  function showScore() {
   var lastGrade = JSON.parse(localStorage.getItem('quizScore'));
@@ -178,6 +179,7 @@ score: secondsLeft,
   scoreCard.removeAttribute("class", "hide");
 });
 
+
 // Action to be performed on click store in named function
 function showResponse(event) {
   event.preventDefault();
@@ -192,6 +194,8 @@ startBtn.addEventListener('click', function(event){
 
 });
 
+// Go back and clear score buttons 
+
 goBackbtn.addEventListener("click", function(event) {
   console.log("clicked")
   location.reload();
@@ -203,6 +207,12 @@ clearScoresbtn.addEventListener("click",function(event) {
    document.getElementById('saved-score').innerHTML = "";
 });
 
+viewScorebtn.addEventListener("click", function (event) {
+  // draw out the highsScores here
+  showScore()
+  landingPage.setAttribute("class","hide");
+  scoreCard.removeAttribute("class", "hide");
+})
 
 // Add listener to submit element
 submitEl.addEventListener("click", showResponse);
