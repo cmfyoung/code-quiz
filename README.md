@@ -11,4 +11,4 @@ Built a timed code quiz on Javascript fundamentals with multiple-choice question
 https://cmfyoung.github.io/code-quiz/
 
 #### Acknowledgements 
-Project assistance from Andrew Layendecker and Diego Struk Jaia during office hours. Brandon Rose and Carlin Shaw during tutoring sessions. Referenced WDN Docs & W3 Schools on Javascript and Web APIs.
+Project assistance from Andrew Layendecker and Diego Struk Jaia during office hours. Brandon Rose and Carlin Shaw during tutoring sessions. Referenced MDN Docs & W3 Schools on Javascript and Web APIs.
